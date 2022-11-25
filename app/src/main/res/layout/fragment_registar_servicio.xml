@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Afiliado.FragmentRegistarServicio">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/txtTitleRPS"
+            android:layout_width="324dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="85dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="606dp"
+            android:text="Registrar Servicio/ Producto"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtType"
+            android:layout_width="28dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="336dp"
+            android:layout_marginBottom="558dp"
+            android:text="Tipo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleRPS" />
+
+        <EditText
+            android:id="@+id/edtServiceProductSelect"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="149dp"
+            android:layout_marginBottom="508dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="service"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtType" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="74dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="287dp"
+            android:layout_marginBottom="466dp"
+            android:text="Descripción"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtServiceProductSelect" />
+
+        <EditText
+            android:id="@+id/edtDescription"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginBottom="420dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="descripcion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="37dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="331dp"
+            android:layout_marginBottom="367dp"
+            android:text="Costo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
+
+        <EditText
+            android:id="@+id/edtCosto"
+            android:layout_width="210dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginEnd="147dp"
+            android:layout_marginBottom="322dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="costo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="133dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="139dp"
+            android:layout_marginTop="47dp"
+            android:layout_marginEnd="139dp"
+            android:layout_marginBottom="221dp"
+            android:backgroundTint="@color/blue_light"
+            android:text="Agregar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtCosto" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
