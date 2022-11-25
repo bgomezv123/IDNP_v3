@@ -67,11 +67,11 @@
         app:layout_constraintVertical_bias="0.97">
 
         <Button
-            android:id="@+id/Administrador"
+            android:id="@+id/Monitor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="1"
-            android:text="Administrador" />
+            android:text="Monitor" />
 
         <Button
             android:id="@+id/Afiliado"

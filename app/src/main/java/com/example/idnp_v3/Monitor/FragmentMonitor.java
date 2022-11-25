@@ -2,6 +2,7 @@ package com.example.idnp_v3.Monitor;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ public class FragmentMonitor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Monitor");
         return inflater.inflate(R.layout.fragment_monitor, container, false);
     }
 }
