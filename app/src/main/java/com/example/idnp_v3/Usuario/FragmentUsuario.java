@@ -23,6 +23,8 @@ public class FragmentUsuario extends Fragment {
 
     FragmentHomeUsuario fragmentHomeUsuario;
     FragmentEstadisticasUsuario fragmentEstadisticasUsuario;
+    FragmentPerfilUsuario fragmentPerfilUsuario;
+    FragmentPerfilSettingUsuario fragmentPerfilSettingUsuario;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,6 +33,9 @@ public class FragmentUsuario extends Fragment {
         View v= inflater.inflate(R.layout.fragment_usuario, container, false);
         fragmentHomeUsuario = new FragmentHomeUsuario();
         fragmentEstadisticasUsuario = new FragmentEstadisticasUsuario();
+        fragmentPerfilSettingUsuario = new FragmentPerfilSettingUsuario();
+        fragmentPerfilUsuario = new FragmentPerfilUsuario();
+
         getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentHomeUsuario).commit();
 
         bottomNavigationView = v.findViewById(R.id.bottom_navigation_usuario);
@@ -45,6 +50,14 @@ public class FragmentUsuario extends Fragment {
 
                     case R.id.estadisticasUsuario:
                         getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentEstadisticasUsuario).commit();
+                        return true;
+
+                    case R.id.muroUsuario:
+                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentPerfilUsuario).commit();
+                        return true;
+
+                    case R.id.perfilUsuario:
+                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentPerfilSettingUsuario).commit();
                         return true;
                 }
                 return false;
