@@ -12,18 +12,75 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Reciclando Ando"
-                android:textSize="25dp" />
+                android:text="\n\nReciclando Ando\n\n"
+                android:textSize="40dp"
+                android:gravity="center_horizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="175dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="203dp"
+                        android:layout_height="wrap_content"
+                        android:text="Total Reciclado" />
+
+                    <EditText
+                        android:id="@+id/editTextNumber2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="60" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Puntos Actuales" />
+
+                    <EditText
+                        android:id="@+id/editTextNumber3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:text="5" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="\nReporte Semanal">
+            </TextView>
             <com.example.idnp_v3.Usuario.BarView
                 android:id="@+id/lienzo"
                 android:layout_width="342dp"
@@ -35,6 +92,11 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="\nPlastico Reciclado">
+            </TextView>
             <com.example.idnp_v3.Usuario.PieView
                 android:id="@+id/dialView"
                 android:layout_width="342dp"
@@ -50,10 +112,10 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="700dp"
+                android:layout_height="200dp"
                 android:layout_centerInParent="true"
-                android:text="Estadistica fragment usuario"
-                android:textSize="25dp" />
+                android:text=""
+                android:textSize="2dp" />
         </LinearLayout>
 
 

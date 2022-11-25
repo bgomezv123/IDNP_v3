@@ -10,12 +10,9 @@ import com.example.idnp_v3.Afiliado.FragmentAfiliado;
 import com.example.idnp_v3.Usuario.FragmentUsuario;
 
 public class MainActivity2 extends AppCompatActivity {
-
     private FragmentMonitor fragmentAdministrador;
     private FragmentAfiliado fragmentAfiliado;
     private FragmentUsuario fragmentUsuario;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
         fragmentAfiliado = new FragmentAfiliado();
         switch (value){
             case 1:
-                Log.d("lugar","Admin");
+                Log.d("lugar","Monitor");
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.containerFragmentBar, fragmentAdministrador)
                         .commit();

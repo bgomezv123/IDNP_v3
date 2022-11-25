@@ -10,11 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.idnp_v3.R;
-
-
 public class FragmentAfiliado extends Fragment {
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
