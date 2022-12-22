@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     EditText editText;
-    Button buttonAfiliado,buttonAdministrador,buttonUsuario;
+    Button buttonAfiliado,buttonMonitor,buttonUsuario;
     Intent intent;
 
 
@@ -25,14 +25,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         getSupportActionBar().setTitle("Inicio de sesion");
-        buttonAdministrador = findViewById(R.id.Monitor);
+        buttonMonitor = findViewById(R.id.Monitor);
         buttonAfiliado = findViewById(R.id.Afiliado);
         buttonUsuario = findViewById(R.id.Usuario);
+        final ManagerBD managerBD= new ManagerBD(getApplicationContext());
 
 
-
-        buttonAdministrador.setOnClickListener(new View.OnClickListener() {
+        buttonMonitor.setOnClickListener(new View.OnClickListener() {
             @Override
+            //EntrarComoMonitor
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
                 intent.putExtra("key",1);
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonAfiliado.setOnClickListener(new View.OnClickListener() {
             @Override
+            //Entrar Como Afiliado
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
                 startActivity(intent);
@@ -49,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+            //Entrar Como Usuario
         buttonUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                managerBD.buscarCurso("1");
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
                 startActivity(intent);
                 intent.putExtra("key",3);

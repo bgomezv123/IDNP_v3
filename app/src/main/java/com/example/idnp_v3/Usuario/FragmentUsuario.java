@@ -23,7 +23,7 @@ public class FragmentUsuario extends Fragment {
 
     FragmentHomeUsuario fragmentHomeUsuario;
     FragmentEstadisticasUsuario fragmentEstadisticasUsuario;
-    FragmentPerfilUsuario fragmentPerfilUsuario;
+    FragmentPerfilMuroUsuario fragmentPerfilMuroUsuario;
     FragmentPerfilSettingUsuario fragmentPerfilSettingUsuario;
 
     @Override
@@ -34,7 +34,7 @@ public class FragmentUsuario extends Fragment {
         fragmentHomeUsuario = new FragmentHomeUsuario();
         fragmentEstadisticasUsuario = new FragmentEstadisticasUsuario();
         fragmentPerfilSettingUsuario = new FragmentPerfilSettingUsuario();
-        fragmentPerfilUsuario = new FragmentPerfilUsuario();
+        fragmentPerfilMuroUsuario = new FragmentPerfilMuroUsuario();
 
         getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentHomeUsuario).commit();
 
@@ -53,7 +53,7 @@ public class FragmentUsuario extends Fragment {
                         return true;
 
                     case R.id.muroUsuario:
-                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentPerfilUsuario).commit();
+                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentPerfilMuroUsuario).commit();
                         return true;
 
                     case R.id.perfilUsuario:

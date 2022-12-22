@@ -5,42 +5,36 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.idnp_v3.R;
-<<<<<<< HEAD
-public class FragmentAfiliado extends Fragment {
-=======
-import com.example.idnp_v3.Usuario.FragmentEstadisticasUsuario;
-import com.example.idnp_v3.Usuario.FragmentHomeUsuario;
-import com.example.idnp_v3.Usuario.FragmentPerfilSettingUsuario;
-import com.example.idnp_v3.Usuario.FragmentPerfilUsuario;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 
+
+
+
 public class FragmentAfiliado extends Fragment {
-    FragmentCanjeAfiliado fragmentCanjeAfiliado;
+    FragmentHomeCanjeAfiliado fragmentHomeCanjeAfiliado;
     FragmentAfiliado fragmentAfiliado;
     FragmentRegistarServicio fragmentRegistarServicio;
     BottomNavigationView bottomNavigationView;
->>>>>>> 3f6528398503746cd204d94f2fa483467bfd9f60
+    FragmentPerfilSettingAfiliado fragmentPerfilSettingAfiliado;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {/*
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Afiliado");
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_afiliado, container, false);*/
-        // Inflate the layout for this fragment
+
         View v= inflater.inflate(R.layout.fragment_afiliado, container, false);
         fragmentAfiliado = new FragmentAfiliado();
-        fragmentCanjeAfiliado = new FragmentCanjeAfiliado();
+        fragmentHomeCanjeAfiliado = new FragmentHomeCanjeAfiliado();
         fragmentRegistarServicio = new FragmentRegistarServicio();
-        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentCanjeAfiliado).commit();
+        fragmentPerfilSettingAfiliado = new FragmentPerfilSettingAfiliado();
+        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentHomeCanjeAfiliado).commit();
 
         bottomNavigationView = v.findViewById(R.id.bottom_navigation_afiliado);
 
@@ -49,11 +43,11 @@ public class FragmentAfiliado extends Fragment {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.homeAfiliado:
-                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentCanjeAfiliado).commit();
+                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentHomeCanjeAfiliado).commit();
                         return true;
 
                     case R.id.perfilAfiliado:
-                        //getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentAfiliado).commit();
+                        getParentFragmentManager().beginTransaction().replace(R.id.containerFragmentContent,fragmentPerfilSettingAfiliado).commit();
                         return true;
 
                     case R.id.registrarAfiliado:
