@@ -13,7 +13,7 @@ public class ManagerBD extends SQLiteOpenHelper {
 
 
 
-    private static  final String NAME_BD = "bd.db";
+    private static  final String NAME_BD = "RecyclartDB.db";
     private static  final int VERSION_BD = 2;
     private static final String SCRIPT = ("CREATE TABLE " +
             "`afiliado` (" + "  `afiId` int NOT NULL," + "  `afiUsr` varchar(45) DEFAULT NULL," + "  `afiCon` varchar(45) DEFAULT NULL," + "  `afiNom` varchar(45) DEFAULT NULL," + "  `afiProp` varchar(45) DEFAULT NULL," + "  `afiDir` varchar(45) DEFAULT NULL," + "  `afiWeb` varchar(45) DEFAULT NULL," + "  PRIMARY KEY (`afiId`)" + ")" +
