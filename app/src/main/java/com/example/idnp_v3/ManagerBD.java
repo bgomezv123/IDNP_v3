@@ -180,19 +180,17 @@ public class ManagerBD extends SQLiteOpenHelper {
 
     }
 
-    public void agregarCurso(String codigo, String curso, String carrera){
+    public void agregarUsuario(String usrId, String usrUsr, String UsrCon,String UsrNom, String UsrApe){
         SQLiteDatabase bd = getWritableDatabase();
 
         if(bd != null){
-            bd.execSQL("INSERT INTO CURSOS VALUES('"+codigo+"','"+curso+"','"+carrera+"')");
+            bd.execSQL("insert into usuario values('"+usrId+"','"+usrUsr+"','"+UsrCon+"','"+UsrNom+"','"+UsrApe+"',null,null)");
             bd.close();
         }
     }
 
     public void buscarCurso(String codigo){
-
         SQLiteDatabase db = getReadableDatabase();
-
 
     }
 

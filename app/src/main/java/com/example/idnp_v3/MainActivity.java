@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
+    TextView textRegistroUsuario;
     EditText editText;
     Button buttonAfiliado,buttonMonitor,buttonUsuario;
     Intent intent;
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         buttonMonitor = findViewById(R.id.Monitor);
         buttonAfiliado = findViewById(R.id.Afiliado);
         buttonUsuario = findViewById(R.id.Usuario);
+        textRegistroUsuario = findViewById(R.id.textRegistroUsuario);
         final ManagerBD managerBD= new ManagerBD(getApplicationContext());
 
 
@@ -59,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
                 startActivity(intent);
                 intent.putExtra("key",3);
+                startActivity(intent);
+            }
+        });
+
+        textRegistroUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getApplicationContext(),MainActivity2.class);
+                startActivity(intent);
+                intent.putExtra("key",4);
                 startActivity(intent);
             }
         });

@@ -7,12 +7,15 @@ import android.util.Log;
 
 import com.example.idnp_v3.Monitor.FragmentMonitor;
 import com.example.idnp_v3.Afiliado.FragmentAfiliado;
+import com.example.idnp_v3.Registro.FragmentRegistroUsuario;
 import com.example.idnp_v3.Usuario.FragmentUsuario;
 
 public class MainActivity2 extends AppCompatActivity {
-    private FragmentMonitor fragmentAdministrador;
+    private FragmentMonitor fragmentMonitor;
     private FragmentAfiliado fragmentAfiliado;
     private FragmentUsuario fragmentUsuario;
+    private FragmentRegistroUsuario fragmentRegistroUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +26,16 @@ public class MainActivity2 extends AppCompatActivity {
              value = extras.getInt("key");
         }
         Log.d("hola",String.valueOf(value));
-        fragmentAdministrador = new FragmentMonitor();
+        fragmentMonitor = new FragmentMonitor();
         fragmentUsuario = new FragmentUsuario();
         fragmentAfiliado = new FragmentAfiliado();
+        fragmentRegistroUsuario = new FragmentRegistroUsuario();
+
         switch (value){
             case 1:
                 Log.d("lugar","Monitor");
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.containerFragmentBar, fragmentAdministrador)
+                        .replace(R.id.containerFragmentBar, fragmentMonitor)
                         .commit();
                 break;
             case 2:
@@ -43,6 +48,13 @@ public class MainActivity2 extends AppCompatActivity {
                 Log.d("lugar","usuario");
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.containerFragmentBar, fragmentUsuario)
+                        .commit();
+                break;
+
+            case 4:
+                Log.d("lugar","registroUsuario");
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.containerFragmentBar, fragmentRegistroUsuario)
                         .commit();
                 break;
             case 0:
