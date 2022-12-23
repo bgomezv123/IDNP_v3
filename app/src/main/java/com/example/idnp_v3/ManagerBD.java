@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.idnp_v3.entidades.AfiliadoEntidad;
+
+import java.util.ArrayList;
+
 
 public class ManagerBD extends SQLiteOpenHelper {
 
@@ -110,8 +114,8 @@ public class ManagerBD extends SQLiteOpenHelper {
                 "  CONSTRAINT \"fk_usuarioReciclaje_Usuario1\" FOREIGN KEY (\"usrId\") REFERENCES \"usuario\" (\"usrId\") ON DELETE RESTRICT ON UPDATE RESTRICT\n" +
                 ");");
 
-        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (1, 'accronos', '123', 'casacronos', 'Edgar Medina', -14, -14,'' ,'');");
-        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (2, 'adlucio', '123', 'donlucio', 'Francisco Vasquez', -15, -15, '','');");
+        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (1, 'accronos', '123', 'casacronos', 'Edgar Medina', -16.390219, -71.516281,'' ,'');");
+        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (2, 'adlucio', '123', 'donlucio', 'Francisco Vasquez', -16.393010, -71.518591, '','');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (1, 1, 2, 'Croquetas para perro', '4');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (2, 1, 2, 'Collar para perro', '12');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (3, 1, 2, 'Llavero', '3');");
@@ -225,6 +229,47 @@ public class ManagerBD extends SQLiteOpenHelper {
         }
         cursor.close();
         return false;
+    }
+    public ArrayList<AfiliadoEntidad> listaAfiliado(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM AFILIADO",null);
+        ArrayList<AfiliadoEntidad> listaAfiliado = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                AfiliadoEntidad afiliado = new AfiliadoEntidad();
+                afiliado.setId(cursor.getInt(0));
+                afiliado.setUsername(cursor.getString(1));
+                afiliado.setAfiContra(cursor.getString(2));
+                afiliado.setNombre(cursor.getString(3));
+                afiliado.setProp(cursor.getString(4));
+                afiliado.setLat(cursor.getString(5));
+                afiliado.setLon(cursor.getString(6));
+                afiliado.setDirecion(cursor.getString(7));
+                afiliado.setWeb(cursor.getString(8));
+                listaAfiliado.add(afiliado);
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return listaAfiliado;
+
+    }
+
+    public String itemsAfiliado(int afiId){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM CANJE WHERE afiId = '"+afiId+"'",null);
+        String listaItems = "";
+        if(cursor.moveToFirst()){
+            do{
+
+                listaItems += cursor.getString(3) + "= "+ cursor.getString(4);
+                listaItems += "\n";
+
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        return listaItems;
+
     }
 
 }
