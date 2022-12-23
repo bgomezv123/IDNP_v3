@@ -2,6 +2,7 @@ package com.example.idnp_v3;
 
 
 
+import android.content.ContentValues;
 import android.content.Context;
 
 import android.database.Cursor;
@@ -194,7 +195,25 @@ public class ManagerBD extends SQLiteOpenHelper {
             bd.close();
         }
     }
+    public void actulizarPerfil(String usrId, String usrUsr, String UsrCon,String UsrNom, String UsrApe){
+        SQLiteDatabase bd = getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put("usrUsr",usrUsr);
+        contentValues.put("usrCon",UsrCon);
+        contentValues.put("usrNom",UsrNom);
+        contentValues.put("usrApe",UsrApe);
+        if(bd != null){
+            int cant=bd.update("usuario",contentValues,"usrId=?",new String[]{usrId});
+            bd.close();
+            Log.d("ActualizacionN",cant+"");
+            /*if (cant==1)
+                Toast.makeText(Context,"Se modificaron los datos", Toast.LENGTH_SHORT).show();
+            else
+                Toast.makeText(this,"No existe",Toast.LENGTH_SHORT).show();
 
+             */
+        }
+    }
     public Cursor buscarUsuario(String usrUsr, String usrCon){
         //72006110
         SQLiteDatabase db = getReadableDatabase();
