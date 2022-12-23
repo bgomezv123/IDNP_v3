@@ -15,7 +15,7 @@ public class ManagerBD extends SQLiteOpenHelper {
 
 
     private static  final String NAME_BD = "RecyclartDB.db";
-    private static  final int VERSION_BD = 2;
+    private static  final int VERSION_BD = 3;
     private static final String SCRIPT = ("CREATE TABLE " +
             "`afiliado` (" + "  `afiId` int NOT NULL," + "  `afiUsr` varchar(45) DEFAULT NULL," + "  `afiCon` varchar(45) DEFAULT NULL," + "  `afiNom` varchar(45) DEFAULT NULL," + "  `afiProp` varchar(45) DEFAULT NULL," + "  `afiDir` varchar(45) DEFAULT NULL," + "  `afiWeb` varchar(45) DEFAULT NULL," + "  PRIMARY KEY (`afiId`)" + ")" +
             "");
@@ -35,6 +35,8 @@ public class ManagerBD extends SQLiteOpenHelper {
                 "  \"afiCon\" text(45),\n" +
                 "  \"afiNom\" text(45),\n" +
                 "  \"afiProp\" text(45),\n" +
+                "  \"afiDirLat\" text(45),\n"+
+                "  \"afiDirLon\" text(45),\n"+
                 "  \"afiDir\" text(45),\n" +
                 "  \"afiWeb\" text(45),\n" +
                 "  PRIMARY KEY (\"afiId\")\n" +
@@ -108,8 +110,8 @@ public class ManagerBD extends SQLiteOpenHelper {
                 "  CONSTRAINT \"fk_usuarioReciclaje_Usuario1\" FOREIGN KEY (\"usrId\") REFERENCES \"usuario\" (\"usrId\") ON DELETE RESTRICT ON UPDATE RESTRICT\n" +
                 ");");
 
-        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (1, 'accronos', '123', 'casacronos', 'Edgar Medina', NULL, NULL);");
-        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (2, 'adlucio', '123', 'donlucio', 'Francisco Vasquez', NULL, NULL);");
+        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (1, 'accronos', '123', 'casacronos', 'Edgar Medina', -14, -14,'' ,'');");
+        sqLiteDatabase.execSQL("INSERT INTO \"afiliado\" VALUES (2, 'adlucio', '123', 'donlucio', 'Francisco Vasquez', -15, -15, '','');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (1, 1, 2, 'Croquetas para perro', '4');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (2, 1, 2, 'Collar para perro', '12');");
         sqLiteDatabase.execSQL("INSERT INTO \"canje\" VALUES (3, 1, 2, 'Llavero', '3');");
@@ -221,6 +223,7 @@ public class ManagerBD extends SQLiteOpenHelper {
 
             }while (cursor.moveToNext());
         }
+        cursor.close();
         return false;
     }
 
