@@ -4,6 +4,7 @@ package com.example.idnp_v3;
 
 import android.content.Context;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -171,7 +172,6 @@ public class ManagerBD extends SQLiteOpenHelper {
                 ");");
         sqLiteDatabase.execSQL("PRAGMA foreign_keys = true;");
 
-
     }
 
     @Override
@@ -189,9 +189,39 @@ public class ManagerBD extends SQLiteOpenHelper {
         }
     }
 
-    public void buscarCurso(String codigo){
+    public Cursor buscarUsuario(String usrUsr, String usrCon){
+        //72006110
         SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM USUARIO WHERE usrUsr='"+usrUsr+"' AND usrCon='"+usrCon+"'",null);
+        Log.d("buscarUsuario","BIEEEEEEEn");
+        if(cursor.moveToFirst()){
+            do{
+                Log.d("buscarUsuario",cursor.getString(1));
+                Log.d("buscarUsuario",cursor.getString(2));
+                return cursor;
+            }while (cursor.moveToNext());
+        }
+        return null;
+    }
 
+
+    public boolean listarUsuarios(){
+        //72006110
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM USUARIO",null);
+        Log.d("listarUsuario","BIEEEEEEEn");
+        if(cursor.moveToFirst()){
+            do{
+                Log.d("listarUsuario","-------------------");
+                Log.d("listarUsuario",cursor.getString(0));
+                Log.d("listarUsuario",cursor.getString(1));
+                Log.d("listarUsuario",cursor.getString(2));
+                Log.d("listarUsuario",cursor.getString(3));
+                Log.d("listarUsuario",cursor.getString(4));
+
+            }while (cursor.moveToNext());
+        }
+        return false;
     }
 
 }

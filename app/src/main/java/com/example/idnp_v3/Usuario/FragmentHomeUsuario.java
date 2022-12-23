@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.idnp_v3.ManagerBD;
 import com.example.idnp_v3.R;
 
 
@@ -18,7 +20,15 @@ public class FragmentHomeUsuario extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        String a = getActivity().getIntent().getExtras().getString("DataUsrId");
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Usuario");
-        return inflater.inflate(R.layout.fragment_home_usuario, container, false);
+        View v = inflater.inflate(R.layout.fragment_home_usuario, container, false);
+        final ManagerBD managerBD= new ManagerBD(v.getContext());
+
+        TextView data = v.findViewById(R.id.dataUsuarioTextView);
+
+        data.setText(a);
+        return v;
     }
 }

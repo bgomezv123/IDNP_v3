@@ -3,12 +3,16 @@ package com.example.idnp_v3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         textRegistroUsuario = findViewById(R.id.textRegistroUsuario);
         final ManagerBD managerBD= new ManagerBD(getApplicationContext());
 
+        EditText usrUsr = findViewById(R.id.usrInicioSesion);
+        EditText usrCon = findViewById(R.id.conInicioSesion);
 
         buttonMonitor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,15 +58,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-            //Entrar Como Usuario
+        //Entrar Como Usuario
         buttonUsuario.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                managerBD.buscarCurso("1");
-                intent = new Intent(getApplicationContext(),MainActivity2.class);
-                startActivity(intent);
-                intent.putExtra("key",3);
-                startActivity(intent);
+                managerBD.listarUsuarios();
+                Cursor dataUsuario = managerBD.buscarUsuario(usrUsr.getText().toString(),usrCon.getText().toString());
+
+                if(dataUsuario!=null){
+                    intent = new Intent(getApplicationContext(),MainActivity2.class);
+                    startActivity(intent);
+                    intent.putExtra("key",3);
+                    intent.putExtra("DataUsrId",dataUsuario.getString(0));
+                    intent.putExtra("DataUsrUsr",dataUsuario.getString(1));
+                    intent.putExtra("DataUsrCon",dataUsuario.getString(2));
+                    intent.putExtra("DataUsrNom",dataUsuario.getString(3));
+                    intent.putExtra("DataUsrApe",dataUsuario.getString(4));
+                    intent.putExtra("DataUsrRecTotal",Integer.parseInt(dataUsuario.getString(5)));
+                    intent.putExtra("DataUsrRecPuntos",Integer.parseInt(dataUsuario.getString(6)));
+
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Datos Erroneos de Usuario", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 

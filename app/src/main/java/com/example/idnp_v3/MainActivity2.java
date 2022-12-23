@@ -1,9 +1,11 @@
 package com.example.idnp_v3;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.idnp_v3.Monitor.FragmentMonitor;
 import com.example.idnp_v3.Afiliado.FragmentAfiliado;
@@ -46,6 +48,8 @@ public class MainActivity2 extends AppCompatActivity {
                 break;
             case 3:
                 Log.d("lugar","usuario");
+
+
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.containerFragmentBar, fragmentUsuario)
                         .commit();
