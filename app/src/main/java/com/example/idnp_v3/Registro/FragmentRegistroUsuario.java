@@ -42,7 +42,7 @@ public class FragmentRegistroUsuario extends Fragment {
             @Override
             public void onClick(View view) {
                 Log.d("Contraseña",usrCon.getText().toString());
-managerBD.agregarUsuario(usrId.getText().toString(),usrUsr.getText().toString(),usrCon.getText().toString(),usrNom.getText().toString(),usrApe.getText().toString());
+                managerBD.agregarUsuario(usrId.getText().toString(),usrUsr.getText().toString(),usrCon.getText().toString(),usrNom.getText().toString(),usrApe.getText().toString());
                 Toast.makeText(v.getContext(),"Datos Guardados", Toast.LENGTH_SHORT).show();
             }
         });

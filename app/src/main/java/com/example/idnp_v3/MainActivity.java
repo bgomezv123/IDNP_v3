@@ -42,9 +42,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //EntrarComoMonitor
             public void onClick(View view) {
-                intent = new Intent(getApplicationContext(),MainActivity2.class);
-                intent.putExtra("key",1);
-                startActivity(intent);
+                managerBD.listarUsuarios();
+                Cursor dataMonitor = managerBD.buscarMonitor(usrUsr.getText().toString(),usrCon.getText().toString());
+
+                if(dataMonitor!=null){
+                    intent = new Intent(getApplicationContext(),MainActivity2.class);
+                    intent.putExtra("key",1);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Datos Erroneos de Usuario", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -53,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
             //Entrar Como Afiliado
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
-                startActivity(intent);
                 intent.putExtra("key",2);
                 startActivity(intent);
             }
@@ -68,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if(dataUsuario!=null){
                     intent = new Intent(getApplicationContext(),MainActivity2.class);
-                    startActivity(intent);
                     intent.putExtra("key",3);
                     intent.putExtra("DataUsrId",dataUsuario.getString(0));
                     intent.putExtra("DataUsrUsr",dataUsuario.getString(1));
@@ -77,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("DataUsrApe",dataUsuario.getString(4));
                     intent.putExtra("DataUsrRecTotal",Integer.parseInt(dataUsuario.getString(5)));
                     intent.putExtra("DataUsrRecPuntos",Integer.parseInt(dataUsuario.getString(6)));
-
                     startActivity(intent);
                 }
                 else{
@@ -92,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 intent = new Intent(getApplicationContext(),MainActivity2.class);
-                startActivity(intent);
                 intent.putExtra("key",4);
                 startActivity(intent);
             }

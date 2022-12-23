@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="comboServicio">
+        <item>Ingreso a piscina</item>
+        <item>Ingreo a parque</item>
+        <item>Ingreo a zoologico</item>
+        <item>Ingreo a biblioteca</item>
+        <item>Ingreo a estadio</item>
+        <item>Producto</item>
+    </string-array>
+
+</resources>

@@ -191,7 +191,7 @@ public class ManagerBD extends SQLiteOpenHelper {
         SQLiteDatabase bd = getWritableDatabase();
 
         if(bd != null){
-            bd.execSQL("insert into usuario values('"+usrId+"','"+usrUsr+"','"+UsrCon+"','"+UsrNom+"','"+UsrApe+"',null,null)");
+            bd.execSQL("insert into usuario values('"+usrId+"','"+usrUsr+"','"+UsrCon+"','"+UsrNom+"','"+UsrApe+"',0,0)");
             bd.close();
         }
     }
@@ -288,7 +288,52 @@ public class ManagerBD extends SQLiteOpenHelper {
         }
         cursor.close();
         return listaItems;
-
     }
+
+    public Cursor buscarMonitor(String usrUsr, String usrCon){
+        //72006110
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM MONITOR WHERE moniUsr='"+usrUsr+"' AND moniCon='"+usrCon+"'",null);
+        Log.d("buscarMonitor","BIEEEEEEEn");
+        if(cursor.moveToFirst()){
+            do{
+                Log.d("buscarMonitor",cursor.getString(1));
+                Log.d("buscarMonitor",cursor.getString(2));
+                return cursor;
+            }while (cursor.moveToNext());
+        }
+        return null;
+    }
+
+    public Cursor buscarUsuarioPorID(int UsrId){
+        //72006110
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM USUARIO WHERE usrId='"+UsrId+"'",null);
+        Log.d("buscarUsuario","BIEEEEEEEn");
+        if(cursor.moveToFirst()){
+            do{
+                Log.d("buscarUsuario",cursor.getString(1));
+                Log.d("buscarUsuario",cursor.getString(2));
+                return cursor;
+            }while (cursor.moveToNext());
+        }
+        return null;
+    }
+
+
+    public void actualizarUsuarioReciclajePuntos(int usrId, int usrRecTotal, int usrRecPuntor){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("UPDATE usuario SET usrRecTotal = '"+usrRecTotal+"', usrRecPuntos= '"+usrRecPuntor+"' WHERE usrId =  '"+usrId+"'  ;",null);
+        if(cursor.moveToFirst()){
+            do{
+                Log.d("buscarUsuario",cursor.getString(1));
+                Log.d("buscarUsuario",cursor.getString(2));
+
+            }while (cursor.moveToNext());
+        }
+    }
+
+
+
 
 }

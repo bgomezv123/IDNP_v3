@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="comboPresentacion">
+        <item>Botella de Bebida</item>
+        <item>Botella de Frasco de Comida</item>
+        <item>Carton de leche</item>
+        <item>Forros para caja de cereales</item>
+    </string-array>
+
+</resources>

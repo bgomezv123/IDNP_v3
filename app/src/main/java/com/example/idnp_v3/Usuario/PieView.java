@@ -16,7 +16,7 @@ public class PieView extends View {
     private int SELECTION_COUNT = 2; // Total secciones diagrama
     private final StringBuffer mTempLabel = new StringBuffer(2);
     private int[] values = {40, 60};
-    private int c[] = {Color.argb(255,90,235,174), Color.argb(255,90,229,248)};
+    private int c[] = {Color.argb(200,100,235,60), Color.argb(250,250,229,0)};
     private int valuesLength;
     private RectF rectF;
     private Paint slicePaint;
@@ -29,7 +29,7 @@ public class PieView extends View {
 
     public PieView(Context context, AttributeSet attrs) {
         super(context, attrs);
-
+        attrs.getIdAttributeResourceValue(2);
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(Color.BLACK);
         mTextPaint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -106,10 +106,15 @@ public class PieView extends View {
     }
     private float[] computeXYForPosition (final int pos, final float radius) {
         float[] result = mTempResult;
-        Double startAngle = Math.PI * (8 / 3d);   // Los ángulos están en radianes.
+        Double startAngle = Math.PI * (9 / 2d);   // Los ángulos están en radianes.
         Double angle = startAngle + (pos * (Math.PI / 4));
         result[0] = (float) (radius * Math.cos(angle)) + (mWidth / 2);
         result[1] = (float) (radius * Math.sin(angle)) + (mHeight / 2);
         return result;
+    }
+
+    public void setValues(int a, int b){
+        values[0] = a;
+        values[1] = b;
     }
 }
